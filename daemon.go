@@ -146,9 +146,10 @@ func build() bool {
 	output, err := cmd.CombinedOutput()
 
 	if err == nil {
-		log.Println(okColor("Build ok."))
+		log.Println(okColor("Build ok."), output)
 	} else {
-		log.Println(failColor("Error while building:\n"), failColor(string(output)))
+		// i'm happy to see the error :)
+		log.Println(failColor("Error while building:\n"), err)
 	}
 
 	return err == nil
